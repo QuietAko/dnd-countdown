@@ -20,5 +20,5 @@ services:
     container_name: dnd_certbot
     volumes:
       - ./nginx/certbot:/etc/letsencrypt
-      - ./site:/var/www/html
+      - ./public:/var/www/html
     entrypoint: /bin/sh -c 'sleep 10 && certbot certonly --webroot -w /var/www/html --email ako.wazowskii@yandex.ru -d dnd.wazowskii.ru --agree-tos --non-interactive'

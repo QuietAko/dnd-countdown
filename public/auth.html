@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Red Lake Access</title>
+  <style>
+    body {
+      background: black;
+      color: #ff2a2a;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      border: 2px solid #ff2a2a;
+      padding: 30px;
+      background: #111;
+      box-shadow: 0 0 20px #ff2a2a77;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      background: #000;
+      color: #ff2a2a;
+      border: 1px solid #ff2a2a;
+      outline: none;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      background: #ff2a2a;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <label for="password">Введите пароль:</label>
+    <input type="password" id="password" />
+    <button onclick="checkPassword()">Войти</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    async function checkPassword() {
+      const password = document.getElementById('password').value;
+      const res = await fetch('http://localhost:3000/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        window.location.href = data.redirectUrl;
+      } else {
+        document.getElementById('message').textContent = 'Неверный пароль!';
+      }
+    }
+  </script>
+</body>
+</html>

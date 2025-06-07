@@ -9,4 +9,14 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    container_name: dnd_backend
+    ports:
+      - "3000:3000"
     restart: unless-stopped

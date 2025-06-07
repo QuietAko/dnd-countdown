@@ -65,7 +65,6 @@
 
     .notes-container::before {
       content: "";
-      pointer-events: none;
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background: repeating-linear-gradient(
@@ -144,7 +143,6 @@
       background: white;
       opacity: 0;
       z-index: 10;
-      pointer-events: none;
       transition: opacity 0.1s ease;
     }
 
@@ -188,6 +186,36 @@
     #photo_1 {
       transform: rotate(-15deg);
     }
+
+    .folders {
+      position: relative;
+      z-index: 100;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .folders a {
+      color: red;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.2s;
+    }
+
+    .folders a:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .divider {
+      width: 60%;
+      height: 2px;
+      background-color: #ff2a2a;
+      box-shadow: 0 0 10px #ff2a2a88;
+      animation: flicker 2s infinite;
+      margin: 20px 0;
+    }
   </style>
 </head>
 <body>
@@ -209,7 +237,7 @@
     </div>
 
     <div class="day">
-      <div class="date">July 22, 1978 — 11:45 PM</div>
+      <div class="date">June 22, 1978 — 11:45 PM</div>
       <div class="dialog">
         <div class="line">— Did you hear that?</div>
         <div class="line">— Hear what?</div>
@@ -220,7 +248,7 @@
     </div>
 
     <div class="day">
-      <div class="date">July 23, 1978 — 3:10 AM</div>
+      <div class="date">June 23, 1978 — 3:10 AM</div>
       <div class="dialog">
         <div class="line">— The basement door is open.</div>
         <div class="line">— Who left it like that?</div>
@@ -231,10 +259,15 @@
     </div>
   </div>
 
-  <div class="photos">
-    <img id="photo_1" width="150" src="photos/1.png"/>
-    99ƐƐ9966ㄥㄥƖ896˙Ɛ8- 'ƖᄅϛƐㄥ9ㄥƐƖϛ0ㄥ8Ɩ˙ㄣƐ
+  <div class="divider"></div>
+
+  <div class="folders">
+      <a href="/auth_page">Clay Hale</a> |
+      <a href="/auth_page">Jason Minton</a> | 
+      <a href="/auth_page">Lawrence Baxter</a> |
+      <a href="/auth_page">Richie Rayburn</a>
   </div>
+
   <div id="countdown"></div>
 
   <audio id="audio" loop>

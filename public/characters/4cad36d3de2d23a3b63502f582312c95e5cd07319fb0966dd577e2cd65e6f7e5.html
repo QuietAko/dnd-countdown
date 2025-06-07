@@ -26,10 +26,7 @@
   }
   .avatar {
     flex: 0 0 200px;
-    border: 2px solid #ff2a2a;
     margin-right: 30px;
-    background-color: #220000;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #ff2a2a88;
@@ -76,11 +73,22 @@
   .traits li {
     margin-bottom: 8px;
   }
+
+  .avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* или cover — в зависимости от того, как хотите обрезать */
+    border: none;
+    display: block;
+  }
+
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="avatar"><br>Clayton</div>
+  <div class="avatar">
+    <img src="../photos/Clay.png" alt="Clayton Hale" />
+  </div>  
   <div class="content">
     <div class="name">Clayton Hale</div>
     <div class="quote">"Ну, технически, это была не совсем моя идея. Но когда ты наконец заканчиваешь Glindale High и даже ты, как я, получаешь приглашение отпраздновать вместе с «ними» — ты идёшь. Даже если ты знаешь, что это скорее социальный эксперимент, чем веселье. Мы едем на велосипедах — это экономично, и полезно для здоровья, а дом, который они нашли на Red Lake... скажем, его фотографии не соответствуют стандартам Airbnb. Старый, облезлый, но с дешёвой арендой. Все уверены, что это будет весело. Я — не очень. Но я еду. Надо же когда-то изучать человеческое поведение вне стен школы."</div>

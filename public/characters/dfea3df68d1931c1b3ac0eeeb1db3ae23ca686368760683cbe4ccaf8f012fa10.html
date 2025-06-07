@@ -26,10 +26,7 @@
   }
   .avatar {
     flex: 0 0 200px;
-    border: 2px solid #ff2a2a;
     margin-right: 30px;
-    background-color: #220000;
-    display: flex;
     justify-content: center;
     align-items: center;
     color: #ff2a2a88;
@@ -76,11 +73,20 @@
   .traits li {
     margin-bottom: 8px;
   }
+  .avatar img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* или cover — в зависимости от того, как хотите обрезать */
+    border: none;
+    display: block;
+  }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="avatar"><br>Lawrence</div>
+  <div class="avatar">
+    <img src="../photos/Lawrence.png" alt="Lawrence Baxter" />
+  </div> 
   <div class="content">
     <div class="name">Lawrence Baxter</div>
     <div class="quote">"Знаешь, как звучит лето? ШЩШ-бац-бац, как винил, который я только что достал. Мы едем на великах — олдскул, детка. В домик у Red Lake, который, да, немного… поношен временем, скажем так. Но кого это волнует? Главное, что там будет моя колонка, мои треки, и мои люди. Нам надо расслабиться, понять, кто мы есть, до того как нас затянет взрослая жизнь. А ещё я собираюсь устроить танцы прямо на крыльце. Можешь звать это “Baxter Beats Camp”."</div>

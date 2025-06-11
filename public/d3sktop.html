@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>folder1 — Desktop</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #000;
+      font-family: Tahoma, sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      align-items: start;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .icon:hover {
+      transform: scale(1.05);
+    }
+
+    .icon img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 5px;
+    }
+
+    .icon span {
+      font-size: 12px;
+      color: red;
+    }
+
+    .icon:hover span {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .modal-content img,
+    .modal-content video {
+      max-width: 100%;
+      max-height: 100%;
+      border: 3px solid #fff;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -25px;
+      right: -25px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .modal_img {
+        width: 100%;
+        height: 500px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="desktop">
+    <div class="icon" onclick="openImage('/photos/forest.png')">
+      <img src="/photos/jpg.ico" alt="image icon" />
+      <span>forest.jpg</span>
+    </div>
+
+    <div class="icon" onclick="openVideo('/videos/3.mp4')">
+      <img src="/photos/jpg.ico" alt="video icon" />
+      <span>video1.mp4</span>
+    </div>
+    <div class="icon" onclick="openVideo('/videos/My Movie.mp4')">
+        <img src="/photos/jpg.ico" alt="video icon" />
+        <span>video2.mp4</span>
+      </div>
+  </div>
+
+  <div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="modal-close" onclick="closeModal()">✖</span>
+    </div>
+  </div>
+
+  <script>
+    function openImage(src) {
+      const modal = document.getElementById('modal');
+      const content = modal.querySelector('.modal-content');
+      content.innerHTML = `<span class="modal-close" onclick="closeModal()">✖</span><img class="modal_img" src="${src}" alt="Opened Image" />`;
+      modal.style.display = 'flex';
+    }
+
+    function openVideo(src) {
+      const modal = document.getElementById('modal');
+      const content = modal.querySelector('.modal-content');
+      content.innerHTML = `
+        <span class="modal-close" onclick="closeModal()">✖</span>
+        <video src="${src}" controls autoplay></video>
+      `;
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('modal');
+        const content = modal.querySelector('.modal-content');
+        content.innerHTML = '<span class="modal-close" onclick="closeModal()">✖</span>';
+        modal.style.display = 'none';
+    }
+
+  </script>
+
+</body>
+</html>

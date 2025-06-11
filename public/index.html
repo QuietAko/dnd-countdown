@@ -196,6 +196,10 @@
       padding: 20px;
     }
 
+    .touchable {
+      z-index: 100;
+    }
+
     .folders a {
       color: red;
       text-decoration: none;
@@ -268,11 +272,12 @@
       <a href="/auth_page">Richie Rayburn</a>
   </div>
 
-  <div id="countdown"></div>
-
-  <audio id="audio" loop>
-    <source src="audio/clock.mp3" type="audio/mp3" />
-  </audio>
+  <a href="d3sktop.html" class="touchable">
+    <img src="/photos/Closed folder.ico" alt="XP Folder Icon"
+         style="width: 35px; height: 35px; vertical-align: middle; margin-right: 5px;" />
+    folder1
+  </a>
+  
 
   <script>
     // FLASH THUNDER EFFECT
@@ -336,31 +341,6 @@
     }
 
     drawRain();
-
-    // COUNTDOWN TIMER
-    const countdownElement = document.getElementById('countdown');
-    const targetDate = new Date('2025-06-12T19:00:00');
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        countdownElement.textContent = '🕛 Время наступило...';
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdownElement.textContent =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>

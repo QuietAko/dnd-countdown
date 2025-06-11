@@ -9,6 +9,7 @@ const users = {
   'j@z_m1nt0n': '/characters/404ae905592fb62ab4bce84bffc77c6988f86210f49155ee0a40f1007224e837.html',
   'b@xter_r0x': '/characters/dfea3df68d1931c1b3ac0eeeb1db3ae23ca686368760683cbe4ccaf8f012fa10.html',
   'r1ch13_b@rbeq': '/characters/7c8158e3cd0f812209832fe13273e06287f20d9ba189ab7a3ea8eea9a28ff008.html',
+  'n4ncy': '/d3sktop'
 };
 
 app.use(express.json());
